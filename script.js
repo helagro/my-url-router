@@ -10,7 +10,7 @@ function main(){
 
     const fullDestination = destinationRouter(destination)
 
-    window.open(fullDestination, "_blank")
+    window.open(fullDestination, "_self", false)
 }
 
 function destinationRouter(destination){
