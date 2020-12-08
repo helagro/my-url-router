@@ -15,8 +15,10 @@ function main(){
 
 function destinationRouter(destination){
     switch(destination){
-        case "counter" :
+        case "counter":
             return serverIp + ":9992"
+        case "calendar": 
+            return "https://outlook.live.com/calendar/0/view/week"
         default:
             return serverIp + ":9991/" + destination
     }
