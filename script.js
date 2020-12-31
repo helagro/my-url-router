@@ -14,13 +14,14 @@ function main(){
 }
 
 function destinationRouter(destination){
+    if(destination.endsWith("-checklist"))
+        return `https://helagro.github.io/dynamic-checklist/?filename=${destination}`
+
     switch(destination){
         case "counter":
             return serverIp + ":9992"
         case "calendar": 
             return "https://outlook.live.com/calendar/0/view/week"
-        case "pause-checklist":
-            return "https://helagro.github.io/dynamic-checklist/?filename=pause-checklist"
         default:
             return serverIp + ":9991/" + destination
     }
