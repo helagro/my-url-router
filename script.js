@@ -14,6 +14,9 @@ function main(){
 }
 
 function destinationRouter(destination){
+    if(destination.endsWith("-checklist"))
+        return `https://helagro.github.io/dynamic-checklist/?filename=${destination}`
+
     switch(destination){
         case "counter":
             return serverIp + ":9992"
