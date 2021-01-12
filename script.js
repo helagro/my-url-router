@@ -1,4 +1,4 @@
-const serverIp = "http://192.168.10.128"
+const serverIp = "http://192.168.10.129"
 
 function main(){
     const queryString = window.location.search
