@@ -1,5 +1,3 @@
-const serverIp = "http://192.168.10.2"
-
 function main(){
     const queryString = window.location.search
     const urlParams = new URLSearchParams(queryString);
@@ -18,12 +16,7 @@ function destinationRouter(destination){
         return `https://helagro.github.io/dynamic-checklist/?filename=${destination}`
 
     switch(destination){
-        case "counter":
-            return serverIp + ":9992"
-        case "calendar": 
-            return "https://outlook.live.com/calendar/0/view/week"
-        default:
-            return serverIp + ":9991/" + destination
+        default: return destination;
     }
 }
 
