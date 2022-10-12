@@ -2,8 +2,7 @@ function main(){
     const queryString = window.location.search
     const urlParams = new URLSearchParams(queryString);
 
-    if(!urlParams.has("d"))
-        return
+    if(!urlParams.has("d")) return
     const destination = urlParams.get("d")
 
     const fullDestination = destinationRouter(destination)
@@ -12,10 +11,9 @@ function main(){
 }
 
 function destinationRouter(destination){
-    if(destination.endsWith("-checklist"))
-        return `https://helagro.github.io/dynamic-checklist/?filename=${destination}`
-
     switch(destination){
+        case "eveninglight":
+            return 'http://192.168.0.198:8000/deviceControlJson?device={"id":65541,"name":"bedroom bulb"}&action=setColor&payload=da5d41'
         default: return destination;
     }
 }
