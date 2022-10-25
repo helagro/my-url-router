@@ -13,7 +13,7 @@ function main(){
 function destinationRouter(destination){
     switch(destination){
         case "eveninglight":
-            return '192.168.0.198:8000/deviceControl.html?jsonUrl=itemContainerJson'
+            return 'http://192.168.0.198:8000/deviceControl.html?jsonUrl=itemContainerJson'
                 + '&device={"id":65541,"name":"bedroom bulb"}'
                 +'&action=setColor'
                 + '&payload=da5d41'
