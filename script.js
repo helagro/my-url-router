@@ -25,8 +25,8 @@ function openDestination(){
 
     const hasD = urlParams.has("d")
     const hasPFX = urlParams.has("pfx")
-    if(!hasD){
-        console.log("Won't redirect, no 'd' parameter")
+    if(!hasD && !hasPFX){
+        console.log("Won't redirect, missing 'd' or 'pfx'")
         return
     }
 
@@ -64,7 +64,7 @@ function appendPrefix(prefixName){
 
     const link = document.createElement("a")
     link.innerText = prefixName
-    link.href = `?pfx=${prefixName}`
+    link.href = `?pfx=${prefixName}&d=`
 
     li.appendChild(link)
     PREFIX_CONTAINER.appendChild(li)
