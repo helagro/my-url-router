@@ -61,13 +61,37 @@ function displayPrefixes(){
 }
 function appendPrefix(prefixName){
     const li = document.createElement("li")
-
     const link = document.createElement("a")
+    const plus = document.createElement("span")
+    const dInput = document.createElement("input")
+    const equals = document.createElement("span")
+    const resultLink = document.createElement("a")
+
     link.innerText = prefixName
     link.href = `?pfx=${prefixName}&d=`
 
+    plus.innerText = " + d="
+
+    dInput.type = "text"
+    dInput.addEventListener("input", (event) => {
+        updateResultLink(event, resultLink, prefixName)
+    })
+
+    equals.innerText = " = "
+
     li.appendChild(link)
+    li.appendChild(plus)
+    li.appendChild(dInput)
+    li.appendChild(equals)
+    li.appendChild(resultLink)
     PREFIX_CONTAINER.appendChild(li)
+}
+
+function updateResultLink(event, resultLink, prefixName){
+    const inputText = event.target.value
+    const linkText = `?pfx=${prefixName}&d=${inputText}`
+    resultLink.innerText = linkText
+    resultLink.href = linkText
 }
 
 
