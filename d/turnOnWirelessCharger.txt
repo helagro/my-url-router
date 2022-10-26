@@ -1,1 +1,1 @@
-http://192.168.0.198:8000/deviceControlJson?device={"id":65539,"name":"wireless charger"}&action=setState&payload=0
+http://192.168.0.198:8000/deviceControlJson?device={"id":65539,"name":"wireless charger"}&action=setState&payload=1
