@@ -1,9 +1,11 @@
 const LINK_CONTAINER = document.getElementById("JSRedirectLinks")
 
-const LAMP_SERVER_PREFIX = "http://192.168.0.198:8000/deviceControl.html?jsonUrl=itemContainerJson"
-const ROUTES = [
-    new Route("eveninglight", `${LAMP_SERVER_PREFIX}&device={"id":65541,"name":"bedroom bulb"}&action=setColor&payload=da5d41`),
-]
+const PREFIXES = {
+    "lampServerDeviceControl": "http://192.168.0.198:8000/deviceControl.html?jsonUrl=itemContainerJson"
+}
+const DESTINATIONS = {
+    "eveninglight": `${PREFIXES["lampServerDeviceControl"]}&device={"id":65541,"name":"bedroom bulb"}&action=setColor&payload=da5d41`
+}
 
 
 function main(){
@@ -18,27 +20,35 @@ function openDestination(){
     const queryString = window.location.search
     const urlParams = new URLSearchParams(queryString)
 
-    if(!urlParams.has("d")) return
-    const destination = urlParams.get("d")
+    const hasD = urlParams.has("d")
+    const hasPFX = urlParams.has("pfx")
+    if(!hasD) return
 
-    const fullDestination = destinationRouter(destination)
+    const d = urlParams.get("d")
+    const prefix = hasPFX ? pfxRouter(pfx) : ""
+    const destination = dRouter(d)
+    const fullDestination = prefix + destination
+
     window.open(fullDestination, "_self", false)
 }
 
-function destinationRouter(destination){
-    for(const route of ROUTES){
-        if(route.name === destination){
-            return route.destination
-        }
-    }
-    return destination
+function pfxRouter(pfx){
+    if(pfx in PREFIXES)
+        return PREFIXES[pfx]
+    return pfx
+}
+
+function dRouter(d){
+    if(d in DESTINATIONS)
+        return DESTINATIONS[d]
+    return d
 }
 
 
 //========== DISPLAY POSSIBLE REDIRECTS ==========
 
 function displayRoutes(){
-    for(const route of ROUTES){
+    for(const route of DESTINATIONS){
         appendLink(route)
     }
 }
