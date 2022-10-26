@@ -1,11 +1,8 @@
 const LINK_CONTAINER = document.getElementById("JSRedirectLinks")
 
 const LAMP_SERVER_PREFIX = "http://192.168.0.198:8000/deviceControl.html?jsonUrl=itemContainerJson"
-const SET_WIRELESS_CHARGER_STATE = `${LAMP_SERVER_PREFIX}&device={"id":65539,"name":"wireless charger"}&action=setState`
 const ROUTES = [
     new Route("eveninglight", `${LAMP_SERVER_PREFIX}&device={"id":65541,"name":"bedroom bulb"}&action=setColor&payload=da5d41`),
-    new Route("turnOnWirelessCharger", `${SET_WIRELESS_CHARGER_STATE}&payload=1`),
-    new Route("turnOffWirelessCharger", `${SET_WIRELESS_CHARGER_STATE}&payload=0`)
 ]
 
 
