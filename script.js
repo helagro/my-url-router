@@ -1,5 +1,5 @@
 const LINK_CONTAINER = document.getElementById("linkContainer")
-const VERSION = "1.1"
+const VERSION = "1.2"
 
 const LAMP_SERVER_PREFIX = "http://192.168.0.198:8000/deviceControl.html?jsonUrl=itemContainerJson"
 const SET_WIRELESS_CHARGER_STATE = `${LAMP_SERVER_PREFIX}&device={"id":65539,"name":"wireless charger"}&action=setState`
