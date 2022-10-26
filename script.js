@@ -1,6 +1,6 @@
 const LINK_CONTAINER = document.getElementById("JSRedirectLinks")
-const VERSION = "1.6"
 
+const VERSION = "1.6"
 const LAMP_SERVER_PREFIX = "http://192.168.0.198:8000/deviceControl.html?jsonUrl=itemContainerJson"
 const SET_WIRELESS_CHARGER_STATE = `${LAMP_SERVER_PREFIX}&device={"id":65539,"name":"wireless charger"}&action=setState`
 const ROUTES = [
@@ -15,6 +15,9 @@ function main(){
     openDestination()
     displayRoutes()
 }
+
+
+//========== REDIRECT ==========
 
 function openDestination(){
     const queryString = window.location.search
@@ -35,6 +38,9 @@ function destinationRouter(destination){
     }
     return destination
 }
+
+
+//========== DISPLAY POSSIBLE REDIRECTS ==========
 
 function displayRoutes(){
     for(const route of ROUTES){
