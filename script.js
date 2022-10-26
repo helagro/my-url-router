@@ -86,7 +86,6 @@ function appendPrefix(prefixName){
     li.appendChild(resultLink)
     PREFIX_CONTAINER.appendChild(li)
 }
-
 function updateResultLink(event, resultLink, prefixName){
     const inputText = event.target.value
     const linkText = `?pfx=${prefixName}&d=${inputText}`
