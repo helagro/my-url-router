@@ -1,6 +1,5 @@
 const LINK_CONTAINER = document.getElementById("JSRedirectLinks")
 
-const VERSION = "1.6"
 const LAMP_SERVER_PREFIX = "http://192.168.0.198:8000/deviceControl.html?jsonUrl=itemContainerJson"
 const SET_WIRELESS_CHARGER_STATE = `${LAMP_SERVER_PREFIX}&device={"id":65539,"name":"wireless charger"}&action=setState`
 const ROUTES = [
@@ -11,7 +10,6 @@ const ROUTES = [
 
 
 function main(){
-    console.log(`Version: ${VERSION}`)
     openDestination()
     displayRoutes()
 }
@@ -53,7 +51,7 @@ function appendLink(route){
 
     const link = document.createElement("a")
     link.innerText = route.name
-    link.href = route.destination
+    link.href = `?d=${route.name}`
 
     li.appendChild(link)
     LINK_CONTAINER.appendChild(li)
